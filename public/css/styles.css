@@ -1,0 +1,248 @@
+:root {
+  --primary: 52, 163, 30;
+  --secondary: 227, 216, 241;
+  --text-inverse: white;
+  --text-secondary: #7a7a7a;
+  --fz-form: 1.2rem;
+  --form-control-padding: 0.75em 1em;
+  --border-color: #bbb;
+  --border-radius: 2px;
+  --bg: #2c2c2b;
+  --border-radius: 5px;
+  --box-shadow: ;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background: var(--bg);
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0 0 0.5em;
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+label {
+  display: block;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  padding: 0.75em 0;
+}
+
+input {
+  font-size: var(--fz-form);
+  padding: var(--form-control-padding);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  margin: 0;
+}
+
+input::placeholder {
+  opacity: 0.6;
+}
+
+button {
+  font: inherit;
+  text-transform: uppercase;
+  font-size: var(--fz-form);
+  font-weight: bold;
+  margin: 0.5em 0;
+  padding: var(--form-control-padding);
+  border: none;
+  border-radius: var(--border-radius);
+  background: rgb(var(--primary));
+  color: var(--text-inverse);
+  transition: filter 0.15s ease-in-out;
+}
+
+button:hover {
+  filter: brightness(1.2);
+}
+
+button:active {
+  filter: brightness(0.9);
+}
+
+button:disabled {
+  filter: opacity(0.6);
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.centered-form {
+  position: absolute;
+  width: min-content;
+  max-width: 100%;
+  margin: auto;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  background: rgb(var(--secondary));
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+  border-radius: var(--border-radius);
+}
+
+.centered-form__box {
+  width: 100%;
+  height: 100%;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.centered-form__box > form > button {
+  width: 100%;
+  margin-top: 1em;
+}
+
+.chat {
+  width: 100vw;
+  max-width: 500px;
+  margin: auto;
+  height: 100vh;
+  --mh: 750px;
+  max-height: var(--mh);
+  margin-top: max(calc(((100vh - var(--mh)) / 3)), 0px);
+  overflow: hidden;
+  background: white;
+  padding: 0.5em;
+  background: rgb(var(--secondary));
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+  border-radius: var(--border-radius);
+}
+
+.chat__main {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+.room-info {
+  grid-row: 1 / 2;
+  border-bottom: 1px solid var(--border-color);
+  margin: 1em 0;
+}
+
+.chat__messages {
+  grid-row: 2 / 3;
+  padding: 1em;
+  font-size: 1.2rem;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.room-title {
+  text-align: center;
+}
+
+.users {
+  display: flex;
+  padding-bottom: 1em;
+}
+
+.username {
+  padding: 4px 8px;
+  margin: 4px 8px;
+  border-radius: 3px;
+  background: hsla(255, 100%, 98%, 0.9);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.message {
+  margin-bottom: 1em;
+  text-align: right;
+}
+
+.message.me {
+  text-align: left;
+}
+
+.message__text {
+  display: inline-block;
+  background: white;
+  padding: 0.2em 0.5em;
+  border-radius: 0.25em;
+  text-align: left;
+  max-width: 90%;
+}
+
+.message__name {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-right: 1em;
+}
+
+.message__meta {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.system-message {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1em;
+}
+
+.compose {
+  grid-row: 3 / 4;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#message-form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+}
+
+#message-form > input {
+  width: 100%;
+}
+
+#send-location {
+  margin: 2px 0 0;
+}
+
+.location-message {
+  text-align: right;
+}
+
+.location-message.me {
+  text-align: left;
+}
